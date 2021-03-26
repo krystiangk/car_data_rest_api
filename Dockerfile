@@ -14,7 +14,7 @@ RUN apk update \
     && pip install psycopg2 \
     && apk del build-deps
 
-RUN apk add make automake gcc g++ subversion python3-dev
+RUN apk add python3-dev
 
 # Install Python requirements.
 COPY requirements.txt .
