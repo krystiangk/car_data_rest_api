@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Car
-import requests
+from .utils import check_if_car_exists
 
 
 class CarSerializer(serializers.ModelSerializer):
@@ -9,13 +9,9 @@ class CarSerializer(serializers.ModelSerializer):
         fields = ('id', 'make', 'model', 'avg_rating')
 
     def validate(self, posted_car_data):
-        posted_car_data = dict((k, v.title()) for k, v in posted_car_data.items())
-        nhtsa_response = requests.\
-            get(f"https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/{posted_car_data['make']}?format=json").json()
-        make_models = [car['Model_Name'].title() for car in nhtsa_response['Results']]
-        for model in make_models:
-            if model == posted_car_data['model']:
-                return posted_car_data
+        verified_car_data = check_if_car_exists(posted_car_data)
+        if verified_car_data:
+            return verified_car_data
         raise serializers.ValidationError("Car of this make and model doesn't exist in the nhtsa database")
 
 
