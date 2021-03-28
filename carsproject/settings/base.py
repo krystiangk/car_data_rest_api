@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['cars-rest-api-43253.herokuapp.com']
+ALLOWED_HOSTS = ['cars-rest-api-43253.herokuapp.com', 'cars-rest-api-34242.herokuapp.com']
 
 
 # Application definition
