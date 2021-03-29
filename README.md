@@ -12,10 +12,10 @@ Set environment variables:
 
 Afterwards run:
 
-python manage.py migrate
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+python manage.py migrate <br>
+python manage.py makemigrations <br>
+python manage.py migrate <br>
+python manage.py runserver <br>
 
 
 ## Problems with Heroku
@@ -23,5 +23,5 @@ There were some problems with deployment to heroku,
 some errors occur when trying to make migrations. 
 
 Here is a version that works, but not fully (apart from Popular endpoint).
-I was trying different solutions but nothing works, yet on local machine everything works as it should.
+I was trying different solutions but to no avail, yet on local machine everything works as it should.
 https://fixing-example-245235346.herokuapp.com/
