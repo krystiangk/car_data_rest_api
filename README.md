@@ -10,18 +10,18 @@ Set environment variables:
 - DEBUG = 1  # if needed
 - DATABASE_URL # if not set the default sqlite db will be used
 
-Afterwards
+Afterwards run:
+
+python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
 
 
-## Usage
+## Problems with Heroku
+There were some problems with deployment to heroku,
+some errors occur when trying to make migrations. 
 
-```python
-from pokemon import pokemon_attack_damage
-
-pokemon_attack_damage("fire -> grass")
-pokemon_attack_damage("fighting -> ice rock")
-pokemon_attack_damage("psychic -> poison dark")
-pokemon_attack_damage("water -> normal")
-pokemon_attack_damage("fire -> rock")
-```
-
+Here is a version that works, but not fully (apart from Popular endpoint).
+I was trying different solutions but nothing works, yet on local machine everything works as it should.
+https://fixing-example-245235346.herokuapp.com/
